@@ -1,0 +1,38 @@
+<p-panel header="IP Access Control List">
+  <p-header>
+    <input
+      type="text"
+      pInputText
+      [(ngModel)]="newIp"
+      style="margin-left:64px"/>
+    <button type="button"
+      pButton
+      label="Add"
+      [disabled]="!newIp"
+      icon="fa-plus"
+      iconPos="left"
+      (click)="onIpAdd()">
+    </button>
+  </p-header>
+  <p-dataTable [value]="ipAdresses">
+    <p-column header="Address">
+      <ng-template let-ip="rowData" pTemplate="body">
+        {{ip}}
+      </ng-template>
+    </p-column>
+    <p-column [style]="{'width':'130px'}">
+            <ng-template let-ip="rowData" pTemplate="body">
+                <button type="button"
+                    pButton
+                    label="Remove"
+                    icon="fa-times"
+                    iconPos="right"
+                    (click)="onIpDelete(ip)">
+                </button>
+            </ng-template>
+        </p-column>
+  </p-dataTable>
+</p-panel>
+
+<p-confirmDialog header="Confirmation" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+<p-growl [value]="msgs"></p-growl>

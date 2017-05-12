@@ -1,0 +1,22 @@
+#label_status {
+  margin-left: 32px;
+}
+
+#text_status {
+  margin-left: 16px;
+  padding: 2px 10px 2px 10px;
+  border-radius:10px 10px 10px 10px;
+  background-color: skyblue;
+}
+
+.STATUS_OK {
+  color: greenyellow;
+}
+
+.STATUS_ERROR {
+  color: red;
+}
+
+.STATUS_CONNECT {
+  color: yellow;
+}
