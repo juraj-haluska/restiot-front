@@ -7,6 +7,8 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+import { Leds } from '../models/models';
+
 @Injectable()
 export class ApiService {
 
@@ -36,4 +38,21 @@ export class ApiService {
     .toPromise()
     .then(res => res.json().ip);
   }
+
+  /* LEDS */
+  public getLeds(): Promise<Leds> {
+    return this.authHttp.get('/led')
+    .toPromise()
+    .then(res => {
+      const data = res.json();
+      return new Leds(data.led1, data.led2, data.led3);
+    });
+  }
+  
+  public setLeds(leds: Leds): void {
+    this.authHttp.post('/led', JSON.stringify(leds))
+    .toPromise()
+    .then();
+  }
+
 }

@@ -1,0 +1,22 @@
+<p-panel header="Leds">
+
+<div class="ui-g">
+    <div class="ui-g-2">Green</div>
+    <div class="ui-g-10">
+        <p-inputSwitch [(ngModel)]="leds.led1" (click)="update()"></p-inputSwitch>
+    </div>
+</div>
+
+<div class="ui-g">
+    <div class="ui-g-2">Blue</div>
+    <div class="ui-g-10">
+        <p-inputSwitch [(ngModel)]="leds.led2" (click)="update()"></p-inputSwitch>
+    </div>
+</div>
+<div class="ui-g">
+    <div class="ui-g-2">Red</div>
+    <div class="ui-g-10">
+        <p-inputSwitch [(ngModel)]="leds.led3" (click)="update()"></p-inputSwitch>
+    </div>
+</div>
+</p-panel>

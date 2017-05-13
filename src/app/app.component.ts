@@ -20,9 +20,9 @@ export class AppComponent implements OnInit {
 
   private status: String = this.STATUS_ERROR;
 
-  private url: String;
-  private user: String;
-  private pass: String;
+  private url: String = "https://192.168.15.200";
+  private user: String = "admin";
+  private pass: String = "admin";
 
   constructor(
       private connector: ConnectorService,
@@ -32,21 +32,28 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.items = [
       {
-        label: 'First',
-        icon: 'fa-bar-chart',
+        label: 'LEDs',
+        icon: 'fa-lightbulb-o',
         command: () => {
-          // this.router.navigate(['/settings']);
+          this.router.navigate(['/leds']);
         }
       },
       {
-        label: 'Second',
+        label: 'Sensors',
         icon: 'fa-bar-chart',
         command: () => {
-          // this.router.navigate(['/settings']);
+          this.router.navigate(['/sensors']);
         }
       },
       {
-        label: 'ACL',
+        label: 'Files',
+        icon: 'fa-files-o',
+        command: () => {
+          this.router.navigate(['/files']);
+        }
+      },
+      {
+        label: 'Access control',
         icon: 'fa-address-book-o',
         command: () => {
           this.router.navigate(['/acl']);
