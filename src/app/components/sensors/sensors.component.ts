@@ -162,16 +162,6 @@ export class SensorsComponent implements OnInit {
     }
   }
 
-  private setTime(time: number): Date {
-    const d = new Date(time * 1000);
-    const date = new Date();
-    date.setUTCFullYear(d.getFullYear());
-    date.setUTCMonth(d.getMonth());
-    date.setUTCDate(d.getDate());
-    date.setHours(d.getUTCHours(), d.getUTCMinutes(), d.getUTCSeconds());
-    return date;
-  }
-
   private timeToString(date: Date): String {
     let out = '';
     let hours;
@@ -192,11 +182,16 @@ export class SensorsComponent implements OnInit {
   }
 
   private compareTimes(utime: number): boolean {
-    return true;
-    // const time = new Date(utime * 1000);
-    // const val = time.valueOf() - 60*60*1000*3; //3 hours shift
-    // if ((val >= this.start.valueOf()) && (val <= this.stop.valueOf())) return true;
-    // return false;
+    const time = new Date(utime * 1000);
+    const utc = new Date();
+    utc.setFullYear(time.getUTCFullYear());
+    utc.setMonth(time.getUTCMonth());
+    utc.setDate(time.getUTCDate());
+    utc.setHours(time.getUTCHours());
+    utc.setMinutes(time.getUTCMinutes());
+    utc.setSeconds(time.getUTCSeconds());
+    if ((utc.valueOf() >= this.start.valueOf()) && (utc.valueOf() <= this.stop.valueOf())) return true;
+    return false;
   }
 
   private timeFormat(utime: number): String {
