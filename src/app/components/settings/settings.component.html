@@ -12,4 +12,19 @@
             <p-calendar [(ngModel)]="day"></p-calendar>
         </div>
     </div>
+
+    <div class="ui-g" *ngIf="day">
+        <div class="ui-g-2"></div>
+        <div class="ui-g-10">
+            <button pButton type="button" (click)="onSetBrowsers()" label="Set browser's time"></button>
+        </div>
+    </div>
+
+    <div class="ui-g" *ngIf="day">
+        <div class="ui-g-2"></div>
+        <div class="ui-g-10">
+            <button pButton type="button" (click)="onSave()" label="Save"></button>
+            <button pButton type="button" (click)="onRefresh()" label="Refresh"></button>
+        </div>
+    </div>
 </p-panel>

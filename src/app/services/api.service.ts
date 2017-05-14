@@ -50,7 +50,8 @@ export class ApiService {
   }
   
   public setLeds(leds: Leds): void {
-    this.authHttp.post('/led', JSON.stringify(leds))
+    console.log( JSON.stringify(leds));
+    this.authHttp.put('/led', JSON.stringify(leds))
     .toPromise()
     .then();
   }
