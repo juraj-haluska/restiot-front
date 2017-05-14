@@ -23,6 +23,8 @@ import { ConfirmDialogModule, ConfirmationService } from 'primeng/primeng';
 import { GrowlModule } from 'primeng/primeng';
 import { InputSwitchModule } from 'primeng/primeng';
 import { TabViewModule } from 'primeng/primeng';
+import { PasswordModule } from 'primeng/primeng';
+import { ChartModule } from 'primeng/primeng';
 
 import { ConnectorService } from './services/connector.service';
 import { ApiService } from './services/api.service';
@@ -52,6 +54,8 @@ import { ApiService } from './services/api.service';
     GrowlModule,
     InputSwitchModule,
     TabViewModule,
+    PasswordModule,
+    ChartModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [ConnectorService, ApiService, ConfirmationService],

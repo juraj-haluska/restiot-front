@@ -1,0 +1,15 @@
+<p-panel header="Files" toggleable="false">
+  <p-dataTable [value]="files">
+    <p-column header="Name">
+      <ng-template let-file="rowData" pTemplate="body">
+        {{file}}
+      </ng-template>
+    </p-column>
+    <p-column [style]="{'width':'140px'}">
+      <ng-template let-file="rowData" pTemplate="body">
+        <button type="button" pButton label="Download" icon="fa-download" iconPos="right" (click)="onDownload(file)">
+                </button>
+      </ng-template>
+    </p-column>
+  </p-dataTable>
+</p-panel>

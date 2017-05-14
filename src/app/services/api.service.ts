@@ -55,4 +55,47 @@ export class ApiService {
     .then();
   }
 
+  /* USERS */
+  public getUsers(): Promise<String[]> {
+    return this.authHttp.get('/user')
+    .toPromise()
+    .then(res => res.json().users);
+  }
+
+  public addUser(name: String, pass: String): Promise<String> {
+    const user = btoa(name + ':' + pass);
+    return this.authHttp.post('/user/' + user, null)
+    .toPromise()
+    .then(res => res.json().user);
+  }
+
+  public removeUser(name: String, pass: String): Promise<String> {
+    const user = btoa(name + ':' + pass);
+    return this.authHttp.delete('/user/' + user)
+    .toPromise()
+    .then(res => res.json().user);
+  }
+
+  /* FILES */
+  public getFiles(): Promise<String[]> {
+    return this.authHttp.get('/file')
+    .toPromise()
+    .then(res => res.json());
+  }
+
+  public getFileBlob(file: String): Promise<Blob> {
+    return this.authHttp.get('/file/' + file)
+    .toPromise()
+    .then(res => {
+      let blob: Blob = new Blob([res.text()]);
+      return blob;
+    });
+  }
+
+  /* SENSOR */
+  public getSensorsData(): Promise<any> {
+    return this.authHttp.get('/sensor')
+    .toPromise()
+    .then(res => res.json());
+  }
 }

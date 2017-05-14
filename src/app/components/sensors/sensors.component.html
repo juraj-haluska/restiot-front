@@ -1,0 +1,32 @@
+<p-panel header="Actual data" toggleable="true">
+    <p-header>
+       <button pButton 
+       type="button" 
+       label="Refresh" 
+       icon="fa-refresh" 
+       iconPos="left" 
+       style="margin-left:64px"
+       (click)="onRefresh()"></button>
+    </p-header>
+    <div *ngIf="actual">
+        <div class="ui-g">
+            <div class="ui-g-2">Temperature</div>
+            <div class="ui-g-10">
+                {{actual.temp}}
+            </div>
+        </div>
+
+        <div class="ui-g">
+            <div class="ui-g-2">Humidity</div>
+            <div class="ui-g-10">
+                {{actual.humi}}
+            </div>
+        </div>
+        <div class="ui-g">
+            <div class="ui-g-2">Pressure</div>
+            <div class="ui-g-10">
+                {{actual.press}}
+            </div>
+        </div>
+    </div>
+</p-panel>

@@ -1,17 +1,7 @@
-<p-panel header="IP Access Control List">
+<p-panel header="IP Access Control List" toggleable="true">
   <p-header>
-    <input
-      type="text"
-      pInputText
-      [(ngModel)]="newIp"
-      style="margin-left:64px"/>
-    <button type="button"
-      pButton
-      label="Add"
-      [disabled]="!newIp"
-      icon="fa-plus"
-      iconPos="left"
-      (click)="onIpAdd()">
+    <input type="text" pInputText [(ngModel)]="newIp" style="margin-left:64px" />
+    <button type="button" pButton label="Add IP" [disabled]="!newIp" icon="fa-plus" iconPos="left" (click)="onIpAdd()">
     </button>
   </p-header>
   <p-dataTable [value]="ipAdresses">
@@ -21,16 +11,33 @@
       </ng-template>
     </p-column>
     <p-column [style]="{'width':'130px'}">
-            <ng-template let-ip="rowData" pTemplate="body">
-                <button type="button"
-                    pButton
-                    label="Remove"
-                    icon="fa-times"
-                    iconPos="right"
-                    (click)="onIpDelete(ip)">
+      <ng-template let-ip="rowData" pTemplate="body">
+        <button type="button" pButton label="Remove" icon="fa-times" iconPos="right" (click)="onIpDelete(ip)">
                 </button>
-            </ng-template>
-        </p-column>
+      </ng-template>
+    </p-column>
+  </p-dataTable>
+</p-panel>
+
+<p-panel header="Users" toggleable="true">
+  <p-header>
+    <input type="text" pInputText [(ngModel)]="newUser.name" style="margin-left:64px" />
+    <input type="password" pPassword [(ngModel)]="newUser.pass" />
+    <button type="button" pButton label="Add user" [disabled]="!newUser.name || !newUser.pass" icon="fa-plus" iconPos="left" (click)="onUserAdd()">
+    </button>
+  </p-header>
+  <p-dataTable [value]="users">
+    <p-column header="Users">
+      <ng-template let-user="rowData" pTemplate="body">
+        {{user.name}}
+      </ng-template>
+    </p-column>
+    <p-column [style]="{'width':'130px'}">
+      <ng-template let-user="rowData" pTemplate="body">
+        <button type="button" pButton label="Remove" icon="fa-times" iconPos="right" (click)="onUserDelete(user)">
+                </button>
+      </ng-template>
+    </p-column>
   </p-dataTable>
 </p-panel>
 
