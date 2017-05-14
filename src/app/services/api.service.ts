@@ -98,4 +98,18 @@ export class ApiService {
     .toPromise()
     .then(res => res.json());
   }
+
+  /* TIME */
+  public getTime(): Promise<number> {
+    return this.authHttp.get('/time')
+    .toPromise()
+    .then(res => res.json().time);
+  }
+
+  public setTime(time: number): Promise<number> {
+    return this.authHttp.put('/time/' + time, null)
+    .toPromise()
+    .then(res => res.json().time);
+  }
+
 }

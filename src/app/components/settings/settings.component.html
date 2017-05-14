@@ -1,1 +1,15 @@
-<h1>dfsdfS</h1>
+<p-panel header="Settings" toggleable="false">
+    <div class="ui-g" *ngIf="time">
+        <div class="ui-g-2">Time</div>
+        <div class="ui-g-10">
+            <p-calendar [(ngModel)]="time" timeOnly="true"></p-calendar>
+        </div>
+    </div>
+
+    <div class="ui-g" *ngIf="day">
+        <div class="ui-g-2">Day</div>
+        <div class="ui-g-10">
+            <p-calendar [(ngModel)]="day"></p-calendar>
+        </div>
+    </div>
+</p-panel>
