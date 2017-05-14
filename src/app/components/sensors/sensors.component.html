@@ -6,7 +6,7 @@
        icon="fa-refresh" 
        iconPos="left" 
        style="margin-left:64px"
-       (click)="onRefresh()"></button>
+       (click)="onActualRefresh()"></button>
     </p-header>
     <div *ngIf="actual">
         <div class="ui-g">
@@ -33,7 +33,21 @@
 
 <p-panel header="Plot" toggleable="true">
     <p-header>
-       
+        <span style="margin-left:50px">start:</span>
+        <p-calendar [(ngModel)]="start" showTime="showTime" hourFormat="24"></p-calendar>
+        <span>stop:</span>
+        <p-calendar [(ngModel)]="stop" showTime="showTime" hourFormat="24"></p-calendar>
+        <span>step:</span>
+        <input type="text" pInputText [(ngModel)]="step" style="width:64px"/>
+        <button pButton 
+        type="button" 
+        label="Redraw" 
+        icon="fa-refresh" 
+        iconPos="left" 
+        style="margin-left:32px"
+        (click)="dataReady()"></button>
     </p-header>
-   
+   <p-chart #temp type="line" [data]="plotDataTemp" [options]="plotOpts"></p-chart>
+   <p-chart #humi type="line" [data]="plotDataHumi" [options]="plotOpts"></p-chart>
+   <p-chart #press type="line" [data]="plotDataPress" [options]="plotOpts"></p-chart>
 </p-panel>
